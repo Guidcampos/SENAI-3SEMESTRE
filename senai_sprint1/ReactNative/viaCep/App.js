@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { ContainerApp } from './style';
 import { Header } from './src/components/Header';
+import { Home } from './src/screens/Home';
 
 export default function App() {
 
@@ -16,12 +17,16 @@ export default function App() {
 
   return (
     <ContainerApp>
-      <StatusBar translucent backgroundColor="transparent" barStyle= "dark-content"/>
-     
+      <StatusBar
+        translucent 
+        backgroundColor= "transparent"
+        barStyle= "dark-content" />
+
       {/* HEADER */}
-      <Header/>
+      <Header />
 
       {/* HOMESCREEN */}
+      <Home/>
 
 
 
