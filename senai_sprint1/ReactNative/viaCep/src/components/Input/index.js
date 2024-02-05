@@ -6,7 +6,8 @@ export const Input = ({
     fieldValue,
     keyType,
     onChangeText,
-    maxLength
+    maxLength,
+   
 
 }) => {
     return (
@@ -18,6 +19,8 @@ export const Input = ({
             maxLength={maxLength}
             value={fieldValue}
             onChangeText={onChangeText}
+           
+        
         />
 
     )
