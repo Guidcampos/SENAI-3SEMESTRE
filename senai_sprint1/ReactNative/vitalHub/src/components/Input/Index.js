@@ -5,7 +5,8 @@ export const Input = ({
     fieldValue,
     keyType,
     onChangeText,
-    placeholderTextColor
+    placeholderTextColor,
+    secureTextEntry = false
    
    
 
@@ -18,6 +19,7 @@ export const Input = ({
             keyboardType={keyType}
             onChangeText={onChangeText}
             placeholderTextColor={placeholderTextColor}
+            secureTextEntry={secureTextEntry}
            
         
         />
