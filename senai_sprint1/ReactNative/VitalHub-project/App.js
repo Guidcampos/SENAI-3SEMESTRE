@@ -14,6 +14,9 @@ import { CreateAccount } from './src/screens/CreateAccount/CreateAccount';
 import { UserProfile } from './src/screens/UserProfile/UserProfile';
 import { MedicalRecord } from './src/screens/MedicalRecord/MedicalRecord';
 import { MedicalConsultations } from './src/screens/MedicalConsultations/MedicalConsultations';
+import { PatientConsultations } from './src/screens/PatientConsultations/PatientConsultations';
+import { SelectMed } from './src/screens/SelectMed/SelectMed';
+import { SelectClinic } from './src/screens/SelectClinic/SelectClinic';
 
 
 const Stack = createNativeStackNavigator();
@@ -103,6 +106,22 @@ export default function App() {
         name='MedicalConsultations'
         component={MedicalConsultations}
         options={{title: "MedicalConsultations"}}
+        />
+       
+        <Stack.Screen
+        name='PatientConsultations'
+        component={PatientConsultations}
+        options={{title: "PatientConsultations"}}
+        />
+        <Stack.Screen
+        name='SelectMed'
+        component={SelectMed}
+        options={{title: "SelectMed"}}
+        />
+        <Stack.Screen
+        name='SelectClinic'
+        component={SelectClinic}
+        options={{title: "SelectClinic"}}
         />
 
 

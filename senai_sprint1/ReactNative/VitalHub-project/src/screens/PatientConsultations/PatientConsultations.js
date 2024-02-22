@@ -1,18 +1,19 @@
 import { useState } from "react"
+import { BtnListAppointment } from "../../components/BtnListAppointment/BtnListAppointment"
 import { CalendarHome } from "../../components/Calendar/Calendar"
 import { Container } from "../../components/Container/ContainerStyle"
 import { Header } from "../../components/Header/Header"
-import { FilterAppointment } from "./MedicalConsultationsStyles"
-import { BtnListAppointment } from "../../components/BtnListAppointment/BtnListAppointment"
+import { FilterAppointment } from "../MedicalConsultations/MedicalConsultationsStyles"
 import { ListComponent } from "../../components/List/ListStyles"
 import { AppointmentCard } from "../../components/AppointmentCard/AppointmentCard"
-import { CancellationModal } from "../../components/CancellationModal/CancellationModal"
-import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal"
+import { FontAwesome6 } from '@expo/vector-icons';
+import { BtnIcon } from "./Style"
 
-export const MedicalConsultations = () => {
+export const PatientConsultations = () => {
 
-    // state para o estado da lista(card)
-    const [statusLista, setStatusLista] = useState("pendente")
+    // state para exibição dos modais 
+    const [showModalCancel, setShowModalCancel] = useState(false)
+    const [showModalAppointment, setShowModalAppointment] = useState(false)
 
     const Consultas = [
         { id: 1, nome: "Vinicius", situacao: "pendente" },
@@ -22,10 +23,8 @@ export const MedicalConsultations = () => {
         { id: 5, nome: "Vinicius", situacao: "cancelado" }
     ];
 
-    // state para exibição dos modais 
-    const [showModalCancel, setShowModalCancel] = useState(false)
-    const [showModalAppointment, setShowModalAppointment] = useState(false)
-
+    // state para o estado da lista(card)
+    const [statusLista, setStatusLista] = useState("pendente")
 
     return (
         <Container>
@@ -59,7 +58,6 @@ export const MedicalConsultations = () => {
 
             </FilterAppointment>
 
-
             {/* lista */}
             <ListComponent
 
@@ -73,8 +71,8 @@ export const MedicalConsultations = () => {
                                 situacao={item.situacao}
                                 onPressCancel={() => setShowModalCancel(true)}
                                 onPressAppointment={() => setShowModalAppointment(true)}
-                                ProfileNameCard = "Guilherme Campos"
-                                Age = "27 anos"
+                                ProfileNameCard = "Dr. Claudio"
+                                Age = "22 anos"
                                 TipoConsulta = "Rotina"
                             />
                         )
@@ -82,21 +80,9 @@ export const MedicalConsultations = () => {
 
             />
 
-            {/* Modal cancelar */}
-
-            <CancellationModal
-                visible={showModalCancel}
-                setShowModalCancel={setShowModalCancel}
-
-            />
-
-            {/* Modal ver prontuario */}
-
-            <AppointmentModal
-                visible={showModalAppointment}
-                setShowModalAppointment={setShowModalAppointment}
-            />
-
+                <BtnIcon>
+                    <FontAwesome6 name="stethoscope" size={24} color="white" />
+                </BtnIcon>
 
         </Container>
     )

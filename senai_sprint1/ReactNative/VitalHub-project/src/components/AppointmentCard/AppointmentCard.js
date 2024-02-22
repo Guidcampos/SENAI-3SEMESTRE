@@ -1,10 +1,13 @@
 import { AntDesign } from '@expo/vector-icons';
-import { ButtonCard, ButtonTextCard, ClockCard, ContainerCardList, ContentCard, DataProfileCard, ProfileData, ProfileImage, ProfileName, TextAge, TextBold, ViewRow } from './AppointmentCardStyles';
+import { ButtonCard, ButtonTextCard, ClockCard, ContainerCardList, ContentCard, ContentMedCard, DataProfileCard, ProfileData, ProfileImage, ProfileName, TextAge, TextBold, ViewRow } from './AppointmentCardStyles';
 
 export const AppointmentCard = ({
     situacao = "pendente",
     onPressCancel,
-    onPressAppointment
+    onPressAppointment,
+    ProfileNameCard,
+    Age,
+    TipoConsulta
 }) => {
     return (
 
@@ -16,11 +19,11 @@ export const AppointmentCard = ({
 
                 <DataProfileCard>
 
-                    <ProfileName>Guilherme Campos</ProfileName>
+                    <ProfileName>{ProfileNameCard}</ProfileName>
 
                     <ProfileData>
-                        <TextAge>27 anos</TextAge>
-                        <TextBold>Rotina</TextBold>
+                        <TextAge>{Age}</TextAge>
+                        <TextBold>{TipoConsulta}</TextBold>
                     </ProfileData>
 
                 </DataProfileCard>
@@ -55,6 +58,38 @@ export const AppointmentCard = ({
 
 
             </ContentCard>
+
+        </ContainerCardList>
+
+    )
+}
+
+export const SelectMedCard = ({
+    textCard,
+    onPressCard,
+    ProfileNameCard,
+    imageUrl,
+}) => {
+    return (
+
+        <ContainerCardList>
+
+            <ProfileImage source= {imageUrl} />
+            {/* <ProfileImage source={{ uri: "https://github.com/Guidcampos.png" }} /> */}
+
+            <ContentMedCard>
+
+                <DataProfileCard>
+
+                    <ProfileName>{ProfileNameCard}</ProfileName>
+
+                    <ProfileData>
+                        <TextBold>{textCard}</TextBold>
+                    </ProfileData>
+
+                </DataProfileCard>
+
+            </ContentMedCard>
 
         </ContainerCardList>
 

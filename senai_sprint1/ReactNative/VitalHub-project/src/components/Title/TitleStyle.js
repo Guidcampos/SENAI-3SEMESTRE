@@ -5,7 +5,10 @@ font-size: 20px;
 font-family: MontserratAlternates_600SemiBold;
 margin-bottom: 5px;
 `
-
+export const TitleSelect = styled(Title)`
+margin-top: 72px;
+margin-bottom: 35px;
+`
 export const TitleProfile = styled(Title)`
 margin-top: 20px;
 `
