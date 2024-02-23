@@ -8,6 +8,7 @@ import { ListComponent } from "../../components/List/ListStyles"
 import { AppointmentCard } from "../../components/AppointmentCard/AppointmentCard"
 import { FontAwesome6 } from '@expo/vector-icons';
 import { BtnIcon } from "./Style"
+import { BookModal } from "../../components/BookModal/BookModal"
 
 export const PatientConsultations = () => {
 
@@ -80,9 +81,17 @@ export const PatientConsultations = () => {
 
             />
 
-                <BtnIcon>
+                <BtnIcon  onPress={() => setShowModalAppointment(true)}>
                     <FontAwesome6 name="stethoscope" size={24} color="white" />
                 </BtnIcon>
+
+                 {/* Modal ver prontuario */}
+
+            <BookModal
+                visible={showModalAppointment}
+                setShowModalAppointment={setShowModalAppointment}
+            />
+
 
         </Container>
     )
