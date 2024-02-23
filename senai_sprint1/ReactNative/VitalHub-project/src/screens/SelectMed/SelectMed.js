@@ -4,14 +4,13 @@ import { Container } from "../../components/Container/ContainerStyle";
 import { LinkCode } from "../../components/Links/Links";
 import { ListComponent } from "../../components/List/ListStyles";
 import { ButtonTitle, Title, TitleSelect } from "../../components/Title/TitleStyle";
-import { ContainerCard, ContentSelectMed } from "./Style";
 
 export const SelectMed = () => {
    
-    const Consultas = [
-        { id: 1, nome: "Dr Vinicius", situacao: "pendente" },
-        { id: 2, nome: "Dr Guilherme", situacao: "realizado" },
-        { id: 3, nome: "Dr Eduardo", situacao: "cancelado" }
+    const Medicos = [
+        { id: 1, nome: "Dr Kaua", image: "https://github.com/kauameloo.png", especialidade: "Cirurgião, Cardiologista" },
+        { id: 2, nome: "Dr Paladino", image: "https://github.com/MateusPaladino-29.png", especialidade: "Demartologa, Esteticista" },
+        { id: 3, nome: "Dr Eduardo", image: "https://github.com/Duduuz7.png", especialidade: "Clínico, Pediatra"},
        
     ];
    
@@ -22,38 +21,20 @@ export const SelectMed = () => {
 
             <TitleSelect>Selecionar Medico</TitleSelect>
 
-            {/* <ContainerCard>
-
-                    <SelectMedCard
-                        ProfileNameCard="Dr Guilherme"
-                        textCard="Cirurgião, Cardiologista"
-                        imageUrl={{ uri: "https://github.com/Guidcampos.png" }}
-                    />
-                    <SelectMedCard
-                        ProfileNameCard="Dr Matheus"
-                        textCard="Cirurgião, Cardiologista"
-                        imageUrl={{ uri: "https://github.com/Guidcampos.png" }}
-                    />
-                    <SelectMedCard
-                        ProfileNameCard="Dr Eduardo"
-                        textCard="Cirurgião, Cardiologista"
-                        imageUrl={{ uri: "https://github.com/Guidcampos.png" }}
-                    />
-                </ContainerCard>
-            */}
             {/* lista */}
             <ListComponent
 
-                data={Consultas}
+                data={Medicos}
                 keyExtractor={(item) => item.id}
+                showsVerticalScrollIndicator={false}
 
                 renderItem={
                     ({item}) =>
                        (
                             <SelectMedCard
                                 ProfileNameCard={item.nome}
-                                textCard="Cirurgião, Cardiologista"
-                                imageUrl={{ uri: "https://github.com/Guidcampos.png" }}
+                                textCard= {item.especialidade}
+                                imageUrl={{ uri: item.image }}
                             />
                         )
                 }

@@ -1,5 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
-import { ButtonCard, ButtonTextCard, ClockCard, ContainerCardList, ContentCard, ContentMedCard, DataProfileCard, ProfileData, ProfileImage, ProfileName, TextAge, TextBold, ViewRow } from './AppointmentCardStyles';
+import { ButtonCard, ButtonTextCard, ClockCard, ContainerCardList, ContainerCardListClinic, ContainerDate, ContainerRate, ContainerRateTime, ContentCard, ContentMedCard, DataClinicCard, DataProfileCard, HourText, ProfileData, ProfileImage, ProfileName, RateText, TextAge, TextBold, TextBoldClinic, ViewRow } from './AppointmentCardStyles';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 export const AppointmentCard = ({
     situacao = "pendente",
@@ -41,12 +43,12 @@ export const AppointmentCard = ({
                             </>
                         ) : situacao == "pendente" ? (
 
-                            <ButtonCard onPress = {onPressCancel}>
+                            <ButtonCard onPress={onPressCancel}>
                                 <ButtonTextCard situacao={situacao}>Cancelar</ButtonTextCard>
                             </ButtonCard>
                         ) : (
 
-                            <ButtonCard onPress= {onPressAppointment}>
+                            <ButtonCard onPress={onPressAppointment}>
                                 <ButtonTextCard situacao={situacao}>Ver prontuário</ButtonTextCard>
                             </ButtonCard>
                         )
@@ -74,7 +76,7 @@ export const SelectMedCard = ({
 
         <ContainerCardList>
 
-            <ProfileImage source= {imageUrl} />
+            <ProfileImage source={imageUrl} />
             {/* <ProfileImage source={{ uri: "https://github.com/Guidcampos.png" }} /> */}
 
             <ContentMedCard>
@@ -92,6 +94,56 @@ export const SelectMedCard = ({
             </ContentMedCard>
 
         </ContainerCardList>
+
+    )
+}
+
+export const SelectClinicCard = ({
+    textCard,
+    onPressCard,
+    ProfileNameCard,
+    rate,
+    openTime
+}) => {
+    return (
+
+        <ContainerCardListClinic>
+
+
+            <ContentMedCard>
+
+                <DataClinicCard>
+
+                    <ProfileName>{ProfileNameCard}</ProfileName>
+
+                    <ProfileData>
+                        <TextBoldClinic>{textCard}</TextBoldClinic>
+                    </ProfileData>
+
+                </DataClinicCard>
+
+            </ContentMedCard>
+
+            <ContainerRateTime>
+
+                <ContainerRate>
+                    <AntDesign name="star" size={20} color="#F9A620" />
+
+                    <RateText>{rate}</RateText>
+                </ContainerRate>
+
+                <ContainerDate>
+
+                    <MaterialCommunityIcons name="calendar-outline" size={15} color="#49B3BA" />
+
+                        <HourText>{openTime}</HourText>
+
+                </ContainerDate>
+
+            </ContainerRateTime>
+
+
+        </ContainerCardListClinic>
 
     )
 }
