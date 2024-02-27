@@ -9,12 +9,15 @@ import { AppointmentCard } from "../../components/AppointmentCard/AppointmentCar
 import { FontAwesome6 } from '@expo/vector-icons';
 import { BtnIcon } from "./Style"
 import { BookModal } from "../../components/BookModal/BookModal"
+import { QueryModal } from "../../components/QueryModal/QueryModal"
 
 export const PatientConsultations = () => {
 
     // state para exibição dos modais 
     const [showModalCancel, setShowModalCancel] = useState(false)
     const [showModalAppointment, setShowModalAppointment] = useState(false)
+    const [showBookModal, setShowBookModal] = useState(false)
+    const [showQueryModal, setShowQueryModal] = useState(false)
 
     const Consultas = [
         { id: 1, nome: "Vinicius", situacao: "pendente" },
@@ -70,28 +73,34 @@ export const PatientConsultations = () => {
                         statusLista == item.situacao && (
                             <AppointmentCard
                                 situacao={item.situacao}
+                                onPress={() => setShowQueryModal(item.situacao === "pendente" ? true : false)  }
                                 onPressCancel={() => setShowModalCancel(true)}
                                 onPressAppointment={() => setShowModalAppointment(true)}
-                                ProfileNameCard = "Dr. Claudio"
-                                Age = "22 anos"
-                                TipoConsulta = "Rotina"
+                                ProfileNameCard="Dr. Claudio"
+                                Age="22 anos"
+                                TipoConsulta="Rotina"
                             />
                         )
                 }
 
             />
 
-                <BtnIcon  onPress={() => setShowModalAppointment(true)}>
-                    <FontAwesome6 name="stethoscope" size={24} color="white" />
-                </BtnIcon>
+            <BtnIcon onPress={() => setShowBookModal(true)}>
+                <FontAwesome6 name="stethoscope" size={24} color="white" />
+            </BtnIcon>
 
-                 {/* Modal ver prontuario */}
+            {/* Modal agendar consulta */}
 
             <BookModal
-                visible={showModalAppointment}
-                setShowModalAppointment={setShowModalAppointment}
+                visible={showBookModal}
+                setShowBookModal={setShowBookModal}
             />
 
+            {/* Modal query */}
+            <QueryModal
+                visible={showQueryModal}
+                setShowQueryModal={setShowQueryModal}
+            />
 
         </Container>
     )

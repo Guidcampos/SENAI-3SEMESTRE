@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {LinearGradient} from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 
 
 export const Container = styled.SafeAreaView`
@@ -43,11 +43,16 @@ export const ContainerMedicalRecord = styled.View`
 flex-direction: row;
 justify-content: space-around;
 `
+export const ContainerQuery = styled.View`
+width: 100%;
+flex-direction: row;
+justify-content: space-around;
+`
 
 export const ContainerHeader = styled(LinearGradient).attrs({
     colors: ["#60BFC5", "#496BBA"],
-    start: {x: -0.05, y: 1.08 },
-    end: {x: 1, y: 0}
+    start: { x: -0.05, y: 1.08 },
+    end: { x: 1, y: 0 }
 })`
 
 width: 100%;
@@ -59,6 +64,15 @@ box-shadow: 0px 4px 15px #00000014;
 flex-direction: row;
 align-items: center;
 justify-content: space-evenly;
+`
+export const ButtonModalContainer = styled.SafeAreaView`
+width:100%;
+flex-direction: row;
+gap: 15px;
+`
 
-
+export const ContainerModalEnd = styled.View`
+width: 100%;
+align-items: center;
+margin-top: 200px;
 `

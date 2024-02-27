@@ -1,6 +1,7 @@
-import { Input, InputMedicalRecord, InputProfile } from "../Input/Input"
+import { Input, InputMedicalRecord, InputProfile, LargeInputModal } from "../Input/Input"
 import { Label, LabelMedicalRecord } from "../Label/Label"
 import { FieldContent, FieldContentMedicalRecord } from "./BoxInputStyles"
+import { InputLabelModal } from "../Title/TitleStyle"
 
 
 export const BoxInput = ({
@@ -65,5 +66,38 @@ export const BoxInputMedical = ({
         <Input editable={editable} placeholder={placeholder } fieldValue={fieldValue} onChangeText={onChangeText} keyType={keyType} maxLength={maxLength} placeholderTextColor={placeholderTextColor}/>
 
         </FieldContentMedicalRecord>
+    )
+}
+
+export const LargeInputBoxModal = ({
+    fieldWidth = 100,
+    fieldHeight = 90,
+    editable = false,
+    textLabel,
+    placeholder,
+    fieldValue = null,
+    onChangeText = null,
+    keyboardType = "default",
+    maxLength,
+    placeholderTextColor
+}) => {
+    return (
+
+        <FieldContent fieldWidth={fieldWidth} fieldHeight={fieldHeight} textLabel={textLabel}>
+
+            <InputLabelModal>{textLabel}</InputLabelModal>
+
+            <LargeInputModal
+                placeholder={placeholder}
+                editable={editable}
+                keyboardType={keyboardType}
+                maxLength={maxLength}
+                fieldValue={fieldValue}
+                onChangeText={onChangeText}
+                placeholderTextColor={placeholderTextColor}
+            />
+
+        </FieldContent>
+
     )
 }

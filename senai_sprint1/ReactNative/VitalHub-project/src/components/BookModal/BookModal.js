@@ -1,13 +1,15 @@
 import { Modal } from "react-native"
-import { AppointmentImageModal, AppointmentModalContent, AppointmentModalText, AppointmentPatientModal } from "../AppointmentModal/Style"
 import { LinkCodeModal } from "../Links/Links"
-import { ButtonModal } from "../Button/ButtonStyle"
-import { ButtonTitle, Title } from "../Title/TitleStyle"
-import { ContainerMedicalRecord } from "../Container/ContainerStyle"
+import { Button, ButtonModal } from "../Button/ButtonStyle"
+import { ButtonTitle, LabelButtonModal, Title } from "../Title/TitleStyle"
+import { ButtonModalContainer, ContainerMedicalRecord, ContainerModalEnd } from "../Container/ContainerStyle"
+import { BookModalContainer, ModalContent } from "./BookModalStyle"
+import { SmallButtonModal } from "../Button/Button"
+import { LargeInputBoxModal } from "../BoxInput/BoxInput"
 
 export const BookModal = ({
     visible,
-    setShowModalAppointment,
+    setShowBookModal,
     ...rest
 }) => {
     return (
@@ -18,32 +20,46 @@ export const BookModal = ({
             animationType="fade"
         >
             {/* Container */}
-            <AppointmentPatientModal>
+            <BookModalContainer>
 
                 {/* Content */}
-                <AppointmentModalContent>
+                <ModalContent>
 
-                  
                     <Title>Agendar consulta</Title>
-                   
-                    <ContainerMedicalRecord>
-                        
 
-                    </ContainerMedicalRecord>
+                    <LabelButtonModal>Qual o nível da consulta ?</LabelButtonModal>
 
-                    <ButtonModal>
-                        <ButtonTitle>Inserir Prontuário</ButtonTitle>
-                    </ButtonModal>
+                    <ButtonModalContainer>
 
-                    {/* <ButtonSecondary>
-                        <ButtonTitleSecondary>Cancelar</ButtonTitleSecondary>
-                    </ButtonSecondary> */}
+                        <SmallButtonModal text={'Rotina'} />
+                        <SmallButtonModal text={'Exame'} />
+                        <SmallButtonModal text={'Urgência'} />
 
-                    <LinkCodeModal onPress={() => setShowModalAppointment(false)}>Cancelar</LinkCodeModal>
+                    </ButtonModalContainer>
 
-                </AppointmentModalContent>
 
-            </AppointmentPatientModal>
+                    <LargeInputBoxModal
+                        fieldWidth={100}
+                        placeholderTextColor={"#34898F"}
+                        textLabel={"Informe a localização desejada"}
+                        placeholder={"Informe a localização"}
+                        editable={true}
+                    />
+
+                    <ContainerModalEnd>
+
+                        <Button>
+                            <ButtonTitle>Continuar</ButtonTitle>
+                        </Button>
+
+                        <LinkCodeModal onPress={() => setShowBookModal(false)}>Cancelar</LinkCodeModal>
+
+                    </ContainerModalEnd>
+
+
+                </ModalContent>
+
+            </BookModalContainer>
 
 
 

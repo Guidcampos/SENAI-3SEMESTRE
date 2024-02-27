@@ -26,10 +26,21 @@ export const ButtonGoogle = styled(Button)`
     margin-top: 15px;
 `
 export const ButtonModal = styled(Button)`
-    width: 80%;
+    width: 100%;
 `
 // export const ButtonSecondary = styled(Button)`
 //     border: none;
 //     background-color: transparent;
 //     margin-bottom: 30px;
 // `
+
+export const SmallButton = styled.TouchableOpacity`
+width: 30%;
+height: 55px;
+padding-top: 5px;
+font-family: "MontserratAlternates_600SemiBold";
+border: 2px solid  #60BFC5;
+border-radius: 10px;
+display: flex;
+align-items:center;
+`;
