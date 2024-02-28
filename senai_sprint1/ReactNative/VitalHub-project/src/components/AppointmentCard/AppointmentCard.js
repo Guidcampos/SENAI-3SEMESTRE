@@ -10,11 +10,11 @@ export const AppointmentCard = ({
     ProfileNameCard,
     Age,
     TipoConsulta,
-    onPress
+    onPressCard
 }) => {
     return (
 
-        <ContainerCardList onPress={onPress}>
+        <ContainerCardList onPress={onPressCard}>
 
             <ProfileImage source={{ uri: "https://github.com/Guidcampos.png" }} />
 

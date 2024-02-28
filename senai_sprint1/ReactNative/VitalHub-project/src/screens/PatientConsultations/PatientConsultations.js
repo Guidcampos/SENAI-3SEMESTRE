@@ -73,7 +73,7 @@ export const PatientConsultations = () => {
                         statusLista == item.situacao && (
                             <AppointmentCard
                                 situacao={item.situacao}
-                                onPress={() => setShowQueryModal(item.situacao === "pendente" ? true : false)  }
+                                onPressCard={() => setShowQueryModal(item.situacao === "pendente" ? true : false)  }
                                 onPressCancel={() => setShowModalCancel(true)}
                                 onPressAppointment={() => setShowModalAppointment(true)}
                                 ProfileNameCard="Dr. Claudio"
