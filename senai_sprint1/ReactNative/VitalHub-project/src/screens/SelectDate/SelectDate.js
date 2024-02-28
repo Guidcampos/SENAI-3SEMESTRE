@@ -5,9 +5,15 @@ import InputSelect from "../../components/InputSelect/InputSelect"
 import { Button } from "../../components/Button/ButtonStyle"
 import { ButtonTitle, LabelSelectText, TitleSelect } from "../../components/Title/TitleStyle"
 import { LinkCodeModal } from "../../components/Links/Links"
+import { ConfirmModal } from "../../components/ConfirmModal/ConfirmModal"
+import { useState } from "react"
 
 
 export const SelectDate = () => {
+
+    const [showConfirmModal, setShowConfirmModal] = useState(false)
+
+
     return (
         <Container>
 
@@ -21,12 +27,18 @@ export const SelectDate = () => {
 
             <InputSelect />
 
-            <Button>
+            <Button onPress={() => setShowConfirmModal(true)}>
                 <ButtonTitle>Continuar</ButtonTitle>
             </Button>
 
             <LinkCodeModal>Cancelar</LinkCodeModal>
 
+            <ConfirmModal
+                visible={showConfirmModal}
+                setShowConfirmModal={setShowConfirmModal}
+            />
+
         </Container>
+
     )
 }

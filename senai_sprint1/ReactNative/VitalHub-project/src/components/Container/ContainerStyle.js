@@ -74,5 +74,10 @@ gap: 15px;
 export const ContainerModalEnd = styled.View`
 width: 100%;
 align-items: center;
-margin-top: 200px;
+margin-top: 150px;
+`
+export const ContainerModalConfirm = styled.View`
+width: 100%;
+align-items: center;
+margin-bottom: 15px;
 `
