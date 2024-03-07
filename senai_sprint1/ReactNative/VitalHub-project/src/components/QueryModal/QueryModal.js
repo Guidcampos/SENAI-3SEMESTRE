@@ -7,6 +7,7 @@ import { QueryContainerModal, QueryImageModal, QueryModalContent, QueryModalText
 
 export const QueryModal = ({
     visible,
+    navigation,
     setShowQueryModal,
     ...rest
 }) => {
@@ -34,7 +35,7 @@ export const QueryModal = ({
 
                     </ContainerQuery>
 
-                    <ButtonModal>
+                    <ButtonModal onPress={() => navigation.replace("Location")}>
                         <ButtonTitle>Ver local da consulta</ButtonTitle>
                     </ButtonModal>
 

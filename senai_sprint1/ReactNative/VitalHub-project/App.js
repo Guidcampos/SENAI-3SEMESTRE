@@ -19,6 +19,7 @@ import { SelectMed } from './src/screens/SelectMed/SelectMed';
 import { SelectClinic } from './src/screens/SelectClinic/SelectClinic';
 import { SelectDate } from './src/screens/SelectDate/SelectDate';
 import { Location } from './src/screens/Location/Location';
+import { Main } from './src/screens/Main/Main';
 
 
 const Stack = createNativeStackNavigator();
@@ -55,6 +56,18 @@ export default function App() {
     <NavigationContainer>
 
       <Stack.Navigator>
+        <Stack.Screen
+        name='Login'
+        component={Login}
+        options={{title: "Login"}}
+        />
+        <Stack.Screen
+        name='Main'
+        component={Main}
+        options={{title: "Main"}}
+        />
+
+
 
         <Stack.Screen
         name='Navegacao'
@@ -62,11 +75,6 @@ export default function App() {
         options={{title: "Navegação"}}
         />
 
-        <Stack.Screen
-        name='Login'
-        component={Login}
-        options={{title: "Login"}}
-        />
 
         <Stack.Screen
         name='ForgotPassword'

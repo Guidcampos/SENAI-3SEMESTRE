@@ -7,6 +7,7 @@ import { ButtonModal, ButtonSecondary } from "../Button/ButtonStyle"
 export const CancellationModal = ({
     visible,
     setShowModalCancel,
+    navigation,
     ...rest
 }) => {
     return (
@@ -26,7 +27,7 @@ export const CancellationModal = ({
                     
                     <ModalText>Ao cancelar essa consulta, abrirá uma possível disponibilidade no seu horário, deseja mesmo cancelar essa consulta?</ModalText>
 
-                    <ButtonModal>
+                    <ButtonModal onPress = {() => navigation.replace("Main")}>
                         <ButtonTitle>Confirmar</ButtonTitle>
                     </ButtonModal>
                     

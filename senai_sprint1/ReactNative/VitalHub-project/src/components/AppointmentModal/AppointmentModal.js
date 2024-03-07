@@ -7,6 +7,7 @@ import { ContainerMedicalRecord } from "../Container/ContainerStyle"
 
 export const AppointmentModal = ({
     visible,
+    navigation,
     setShowModalAppointment,
     ...rest
 }) => {
@@ -34,7 +35,7 @@ export const AppointmentModal = ({
 
                     </ContainerMedicalRecord>
 
-                    <ButtonModal>
+                    <ButtonModal onPress={() => navigation.replace("MedicalRecord")}>
                         <ButtonTitle>Inserir Prontuário</ButtonTitle>
                     </ButtonModal>
 

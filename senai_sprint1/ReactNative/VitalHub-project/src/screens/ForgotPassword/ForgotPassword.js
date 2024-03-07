@@ -5,12 +5,12 @@ import { ButtonTitle, Subtitle, Title } from "../../components/Title/TitleStyle"
 import { Input } from "../../components/Input/Input";
 import { Button } from "../../components/Button/ButtonStyle";
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({navigation}) => {
     return (
         <Container>
             
             {/* lembrar de mexer no icon, pois esta mais acima que a imagem */}
-            <ConteinerIcon>
+            <ConteinerIcon onPress={() => navigation.replace("Login")}>
 
                 <Feather name="arrow-left-circle" size={30} color="#34898F" />
 
@@ -35,7 +35,7 @@ export const ForgotPassword = () => {
             />
 
             <Button>
-                <ButtonTitle>Continuar</ButtonTitle>
+                <ButtonTitle onPress={() => navigation.replace("CheckEmail")}>Continuar</ButtonTitle>
             </Button>
 
         </Container>

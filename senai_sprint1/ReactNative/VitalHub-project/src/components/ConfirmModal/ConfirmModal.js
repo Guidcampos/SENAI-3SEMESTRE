@@ -8,6 +8,7 @@ import { ConfirmModalContainer, ConfirmModalContent, ConfirmModalText, ConfirmSu
 export const ConfirmModal = ({
     visible,
     setShowConfirmModal,
+    navigation,
     ...rest
 }) => {
     return (
@@ -46,11 +47,11 @@ export const ConfirmModal = ({
 
                     <ContainerModalConfirm>
 
-                        <Button>
+                        <Button onPress={() => navigation.replace("Main")}>
                             <ButtonTitle>Continuar</ButtonTitle>
                         </Button>
 
-                        <LinkCodeModal onPress={() => setShowConfirmModal(false)}>Cancelar</LinkCodeModal>
+                        <LinkCodeModal onPress={() => navigation.replace("Main")}>Cancelar</LinkCodeModal>
 
                     </ContainerModalConfirm>
 

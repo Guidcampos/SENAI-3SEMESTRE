@@ -9,6 +9,7 @@ import { LargeInputBoxModal } from "../BoxInput/BoxInput"
 
 export const BookModal = ({
     visible,
+    navigation,
     setShowBookModal,
     ...rest
 }) => {
@@ -48,7 +49,7 @@ export const BookModal = ({
 
                     <ContainerModalEnd>
 
-                        <Button>
+                        <Button onPress={() => navigation.replace("SelectClinic")}>
                             <ButtonTitle>Continuar</ButtonTitle>
                         </Button>
 

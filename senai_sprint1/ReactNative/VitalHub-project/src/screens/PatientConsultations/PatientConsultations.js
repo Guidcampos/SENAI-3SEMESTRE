@@ -10,8 +10,9 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { BtnIcon } from "./Style"
 import { BookModal } from "../../components/BookModal/BookModal"
 import { QueryModal } from "../../components/QueryModal/QueryModal"
+import { CancellationModal } from "../../components/CancellationModal/CancellationModal"
 
-export const PatientConsultations = () => {
+export const PatientConsultations = ({navigation}) => {
 
     // state para exibição dos modais 
     const [showModalCancel, setShowModalCancel] = useState(false)
@@ -76,6 +77,7 @@ export const PatientConsultations = () => {
                                 onPressCard={() => setShowQueryModal(item.situacao === "pendente" ? true : false)  }
                                 onPressCancel={() => setShowModalCancel(true)}
                                 onPressAppointment={() => setShowModalAppointment(true)}
+                                navigation={navigation}
                                 ProfileNameCard="Dr. Claudio"
                                 Age="22 anos"
                                 TipoConsulta="Rotina"
@@ -94,12 +96,23 @@ export const PatientConsultations = () => {
             <BookModal
                 visible={showBookModal}
                 setShowBookModal={setShowBookModal}
+                navigation={navigation}
             />
 
             {/* Modal query */}
             <QueryModal
                 visible={showQueryModal}
                 setShowQueryModal={setShowQueryModal}
+                navigation={navigation}
+            />
+            
+              {/* Modal cancelar */}
+
+              <CancellationModal
+                visible={showModalCancel}
+                setShowModalCancel={setShowModalCancel}
+                navigation={navigation}
+
             />
 
         </Container>

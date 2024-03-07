@@ -4,8 +4,9 @@ import { BoxInput } from '../../components/BoxInput/BoxInput';
 import { Container, ContainerInput } from '../../components/Container/ContainerStyle';
 import { MapImagem } from './Style';
 import { StatusBar } from 'react-native';
+import { LinkLocation } from '../../components/Links/Links';
 
-export const Location = () => {
+export const Location = ({navigation}) => {
     return (
         <Container>
 
@@ -41,6 +42,8 @@ export const Location = () => {
             />
 
             </ContainerInput>
+
+            <LinkLocation onPress={() => navigation.replace("Main")}>Voltar</LinkLocation>
 
             <StatusBar barStyle='dark-content' translucent backgroundColor='transparent'/>
 

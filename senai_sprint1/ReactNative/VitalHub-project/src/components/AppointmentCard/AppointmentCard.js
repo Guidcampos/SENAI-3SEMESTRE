@@ -1,6 +1,8 @@
 import { AntDesign } from '@expo/vector-icons';
 import { ButtonCard, ButtonTextCard, ClockCard, ContainerCardList, ContainerCardListClinic, ContainerDate, ContainerRate, ContainerRateTime, ContentCard, ContentMedCard, DataClinicCard, DataProfileCard, HourText, ProfileData, ProfileImage, ProfileName, RateText, TextAge, TextBold, TextBoldClinic, ViewRow } from './AppointmentCardStyles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useState } from 'react';
+
 
 
 export const AppointmentCard = ({
@@ -10,8 +12,11 @@ export const AppointmentCard = ({
     ProfileNameCard,
     Age,
     TipoConsulta,
+    navigation,
+    profile = "Paciente",
     onPressCard
 }) => {
+
     return (
 
         <ContainerCardList onPress={onPressCard}>
@@ -49,7 +54,8 @@ export const AppointmentCard = ({
                             </ButtonCard>
                         ) : (
 
-                            <ButtonCard onPress={onPressAppointment}>
+                            <ButtonCard onPress={profile !== "Paciente" ? onPressAppointment : () => navigation.replace("ViewDescription")}
+                        >
                                 <ButtonTextCard situacao={situacao}>Ver prontuário</ButtonTextCard>
                             </ButtonCard>
                         )
@@ -137,7 +143,7 @@ export const SelectClinicCard = ({
 
                     <MaterialCommunityIcons name="calendar-outline" size={15} color="#49B3BA" />
 
-                        <HourText>{openTime}</HourText>
+                    <HourText>{openTime}</HourText>
 
                 </ContainerDate>
 

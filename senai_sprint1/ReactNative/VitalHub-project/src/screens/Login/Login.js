@@ -6,7 +6,12 @@ import { LinkAccount, LinkMedium } from "../../components/Links/Links"
 import { Button, ButtonGoogle } from "../../components/Button/ButtonStyle"
 import { AntDesign } from '@expo/vector-icons';
 
-export const Login = () => {
+export const Login = ({navigation}) => {
+   
+    async function Login(){
+        navigation.navigate("Main")
+    }
+   
     return (
         <Container>
 
@@ -34,20 +39,20 @@ export const Login = () => {
             />
 
 
-                <LinkMedium>Esqueceu sua senha?</LinkMedium>
+                <LinkMedium onPress={() => navigation.replace("ForgotPassword")}>Esqueceu sua senha?</LinkMedium>
 
-            <Button>
+            <Button onPress={(e) => Login()}>
                 <ButtonTitle>Entrar</ButtonTitle>
             </Button>
 
-            <ButtonGoogle>
+            <ButtonGoogle >
                 <AntDesign name="google" size={18} color="#496BBA" />
                 <ButtonTitleGoogle>Entrar com o Google</ButtonTitleGoogle>
             </ButtonGoogle>
 
             <ContentAccount>
                 <TextAccount>Não tem conta ?</TextAccount>
-                <LinkAccount>Crie uma conta agora!</LinkAccount>
+                <LinkAccount onPress={() => navigation.replace("CreateAccount")}>Crie uma conta agora!</LinkAccount>
             </ContentAccount>
 
         </Container>
