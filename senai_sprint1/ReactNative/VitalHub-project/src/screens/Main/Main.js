@@ -13,7 +13,7 @@ const BottomTap = createBottomTabNavigator();
 
 export const Main = () => {
 
-    const [profile, setShowProfile] = useState("Medico")
+    const [profile, setShowProfile] = useState("Paciente")
 
     return (
         profile === "Paciente" ?

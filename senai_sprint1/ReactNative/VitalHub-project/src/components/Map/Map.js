@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
@@ -10,9 +10,10 @@ import {
   LocationAccuracy //Precisao de captura
 } from "expo-location";
 import { useEffect, useState, useRef } from "react";
-import { mapskey } from "./Utils/mapsKey";
+import { mapskey } from "../../utils/mapsKey";
 
-export default function App() {
+
+export default function Map() {
   const mapReference = useRef(null)
 
   const [initialPosition, setInitialPosition] = useState(null);
@@ -50,19 +51,19 @@ export default function App() {
     CapturarLocalizacao();
 
     //Capturar localizacao em tempo real
-    watchPositionAsync({
-      accuracy : LocationAccuracy.High,
-      timeInterval : 1000,
-      distanceInterval : 1
-    }, async (response) => {
-      await setInitialPosition( response )
+    // watchPositionAsync({
+    //   accuracy : LocationAccuracy.High,
+    //   timeInterval : 1000,
+    //   distanceInterval : 1
+    // }, async (response) => {
+    //   await setInitialPosition( response )
 
-      mapReference.current?.animateCamera({
-        pitch : 60,
-        center : response.coords
-        }
-      )
-    })
+    //   mapReference.current?.animateCamera({
+    //     pitch : 60,
+    //     center : response.coords
+    //     }
+    //   )
+    // })'
 
   }, [10000]);
   

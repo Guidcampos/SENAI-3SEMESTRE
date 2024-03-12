@@ -5,14 +5,15 @@ import { Container, ContainerInput } from '../../components/Container/ContainerS
 import { MapImagem } from './Style';
 import { StatusBar } from 'react-native';
 import { LinkLocation } from '../../components/Links/Links';
+import Map from '../../components/Map/Map';
 
 export const Location = ({navigation}) => {
     return (
         <Container>
 
-            <MapImagem 
-                source={require('../../assets/MapImage.png')}
-            />
+            <MapImagem>
+                <Map/>
+            </MapImagem>
 
             <TitleProfile>Clínica Natureh</TitleProfile>
 
