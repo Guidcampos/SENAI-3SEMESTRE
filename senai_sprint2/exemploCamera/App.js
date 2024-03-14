@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Camera, CameraType } from 'expo-camera';
+import * as MediaLibrary from 'expo-media-library'
 import { useEffect, useState, useRef } from 'react';
 import { FontAwesome, AntDesign, Ionicons } from '@expo/vector-icons'
 
@@ -8,11 +9,13 @@ export default function App() {
   const cameraRef = useRef(null)
   const [openModal, setOpenModal] = useState(false)
   const [photo, setPhoto] = useState(null)
+  const [fotoGaleria, setFotoGaleria] = useState(null)
   const [tipoCamera, setTipoCamera] = useState(CameraType.front)
 
   useEffect(() => {
     (async () => {
       const { status: cameraStatus } = await Camera.requestCameraPermissionsAsync()
+      const { status: mediaStatus } = await MediaLibrary.requestPermissionsAsync()
     })();
   }, [])
 
@@ -22,9 +25,29 @@ export default function App() {
 
       setPhoto(photo.uri)
       setOpenModal(true)
-
-      console.log(photo)
     }
+  }
+
+  async function UploadPhoto() {
+    await MediaLibrary.createAssetAsync(photo).then((response) => {
+      alert('Foto salva com sucesso')
+      setFotoGaleria(response)
+    }).catch(error => {
+      alert('Não foi possivel salvar a foto')
+    }) 
+
+  }
+
+
+  async function ClearPhoto(fotoGaleria) {
+    await MediaLibrary.deleteAssetsAsync(fotoGaleria.id).then(() => {
+      alert('Foto deletada com sucesso')
+    }).catch(error => {
+      alert('Não foi possivel deletar a foto')
+    }) 
+    setFotoGaleria(null)
+    setPhoto(null)
+    setOpenModal(false)
   }
 
   return (
@@ -56,12 +79,18 @@ export default function App() {
           <Image
             style={{ width: "100%", height: 500, borderRadius: 15 }}
             source={{ uri: photo }}
-             />
+          />
 
-          <View style={{ margin: 10, flexDirection: 'row' }}>
-            <TouchableOpacity style={styles.btnCloseModal} onPress={() => setOpenModal(false)}>
-              <AntDesign name='closecircle' size={50} color="#000" />
+          <View style={{ margin: 10, flexDirection: 'row', gap: 20 }}>
+            {/* Botoes de controle */}
+            <TouchableOpacity style={styles.btnClear} onPress={() => ClearPhoto(fotoGaleria)}>
+              <AntDesign name='closecircle' size={50} color="#ff0000" />
             </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnUpload} onPress={() => UploadPhoto()}>
+              <FontAwesome name='upload' size={50} color="#FFF" />
+            </TouchableOpacity>
+
           </View>
         </View>
       </Modal>
@@ -110,10 +139,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnCloseModal: {
+  btnClear: {
     margin: 20,
     borderRadius: 50,
     backgroundColor: "#FFF",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnUpload: {
+    margin: 20,
+    borderRadius: 50,
+    backgroundColor: "#000",
     justifyContent: 'center',
     alignItems: 'center',
   },
