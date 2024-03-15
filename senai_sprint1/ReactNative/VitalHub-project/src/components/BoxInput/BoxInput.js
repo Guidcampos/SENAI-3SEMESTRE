@@ -117,7 +117,7 @@ export const BoxInputViewPrescription = ({
         <FieldContent fieldWidth={fieldWidth} fieldHeight={fieldHeight}>
 
         <Label textLabel={textLabel}/>
-
+        
         <InputViewPrescription editable={editable} placeholder={placeholder} fieldValue={fieldValue} onChangeText={onChangeText} keyType={keyType} maxLength={maxLength}/>
 
         </FieldContent>

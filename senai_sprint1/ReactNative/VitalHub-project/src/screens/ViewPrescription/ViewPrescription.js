@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { BoxInputPrescriptionView, BoxInputViewPrescription } from "../../components/BoxInput/BoxInput"
 import { ButtonCanceled, ButtonSendPrescription } from "../../components/Button/Button"
+import { CameraModal } from "../../components/CameraModal/CameraModal"
 import { Container, ContainerViewPrescriptiion, ContainerViewPrescriptionButton, ScrollViewPrescriptiion } from "../../components/Container/ContainerStyle"
 import { LinkBack } from "../../components/Links/Links"
 import { ViewPrescriptiionImage } from "../../components/Logo/LogoStyle"
@@ -7,6 +9,8 @@ import { SubtitleViewPrescription, TitleViewPrescriptiion } from "../../componen
 import { Line } from "./Styles"
 
 export const ViewPrescription = ({navigation}) => {
+    const [showCameraModel, setShowCameraModel] = useState(false)
+    const [uriCameraCapture, setUriCameraCapture] = useState(null)
     return (
         <ScrollViewPrescriptiion>
 
@@ -60,7 +64,7 @@ export const ViewPrescription = ({navigation}) => {
 
                 <ContainerViewPrescriptionButton>
 
-                    <ButtonSendPrescription text={'Enviar'} />
+                    <ButtonSendPrescription text={'Enviar'} onPress={() => setShowCameraModel(true)}/>
 
                     <ButtonCanceled text={'Cancelar'}/>
 
@@ -78,6 +82,7 @@ export const ViewPrescription = ({navigation}) => {
 
                 <LinkBack onPress={() => navigation.replace("Main")} >Voltar</LinkBack>
 
+                <CameraModal visible={showCameraModel} setShowCameraModel={setShowCameraModel} setUriCameraCapture={setUriCameraCapture} />
             </Container>
 
         </ScrollViewPrescriptiion>
