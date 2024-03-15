@@ -17,7 +17,7 @@ export default function App() {
 
   const [initialPosition, setInitialPosition] = useState(null);
 
-  const [finalPosition, setFinalPosition] = useState({ latitude: -23.550204, longitude: -46.311381 })
+  const [finalPosition, setFinalPosition] = useState({ latitude: -23.540878, longitude: -46.318001 })
 
   async function CapturarLocalizacao() {
     const { granted } = await requestForegroundPermissionsAsync();
@@ -113,9 +113,9 @@ export default function App() {
           <MapViewDirections
             origin={initialPosition.coords}
             destination={{
-              latitude: -23.550204,
+              latitude: finalPosition.latitude,
 
-              longitude: -46.311381
+              longitude: finalPosition.longitude
 
             }}
             apikey={mapskey}

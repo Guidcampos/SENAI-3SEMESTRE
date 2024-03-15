@@ -60,3 +60,22 @@ export const InputTextLargeModal = styled(InputText)`
     text-transform: capitalize;
     font-size: 16px;
 `
+
+export const InputViewPrescriptionBox = styled.TextInput`
+border: 1px solid #F5F3F3;
+width: 90%;
+height: 121px;
+align-items: left;
+justify-content: center;
+padding: 16px;
+background-color: #F5F3F3;
+color: #4E4B59;
+font-size: 14px;
+font-family: MontserratAlternates_500Medium;
+border-radius: 5px;
+margin-bottom: 20px;
+text-align: start;
+`
+export const InputPrescriptionViewBox = styled(InputViewPrescriptionBox)`
+height: 53px;
+`

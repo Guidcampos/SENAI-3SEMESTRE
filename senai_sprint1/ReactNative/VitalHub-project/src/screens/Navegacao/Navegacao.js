@@ -63,6 +63,11 @@ export const Navegacao = ({navigation}) => {
             title="Location"
             onPress={() => navigation.navigate("Location")}
             />
+                <Button
+            title="ViewPrescription"
+            onPress={() => navigation.navigate("ViewPrescription")}
+            />
+
             
         </View>
     )

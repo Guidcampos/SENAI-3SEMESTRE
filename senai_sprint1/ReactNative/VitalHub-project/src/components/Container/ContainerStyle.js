@@ -83,3 +83,26 @@ width: 100%;
 align-items: center;
 margin-bottom: 15px;
 `
+export const ScrollViewPrescriptiion = styled.ScrollView`
+    height: 80%;
+
+`
+export const ContainerPrescription = styled.View`
+width: 100%;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+`
+export const ContainerViewPrescriptiion = styled.View`
+width: 50%;
+justify-content: space-evenly;
+flex-direction: row;
+align-items: center;
+`
+
+export const ContainerViewPrescriptionButton = styled.View`
+width: 90%;
+justify-content: space-between;
+flex-direction: row;
+margin-bottom: 30px;
+`

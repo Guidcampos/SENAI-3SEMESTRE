@@ -1,4 +1,4 @@
-import { InputBox, InputBoxMedicalRecord, InputCheckEmail, InputProfileBox, InputTextLargeModal } from "./InputStyles"
+import { InputBox, InputBoxMedicalRecord, InputCheckEmail, InputPrescriptionViewBox, InputProfileBox, InputTextLargeModal, InputViewPrescriptionBox } from "./InputStyles"
 
 export const Input = ({
     placeholder,
@@ -107,3 +107,44 @@ export function LargeInputModal({
         />
     )
 }
+
+export const InputViewPrescription = ({
+    placeholder,
+    fieldValue,
+    onChangeText,
+    keyType,
+    placeholderTextColor,
+    maxLength,
+}) => {
+    return(
+        <InputViewPrescriptionBox
+        placeholder={placeholder}
+        keyboardType={keyType}
+        value={fieldValue}
+        onChangeText={onChangeText}
+        placeholderTextColor={placeholderTextColor}
+        maxLength={maxLength}
+        />
+    )
+}
+
+export const InputPrescriptionView = ({
+    placeholder,
+    fieldValue,
+    onChangeText,
+    keyType,
+    placeholderTextColor,
+    maxLength,
+}) => {
+    return(
+        <InputPrescriptionViewBox
+        placeholder={placeholder}
+        keyboardType={keyType}
+        value={fieldValue}
+        onChangeText={onChangeText}
+        placeholderTextColor={placeholderTextColor}
+        maxLength={maxLength}
+        />
+    )
+}
+

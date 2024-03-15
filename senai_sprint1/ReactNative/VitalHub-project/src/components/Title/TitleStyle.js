@@ -86,3 +86,24 @@ color: black;
 margin-top: 30px;
 margin-bottom: 10px;
 `
+
+export const TitleViewPrescriptiion = styled(Title)`
+margin-top: 20px;
+`
+export const SubtitleViewPrescription = styled(Subtitle)`
+margin-bottom: 25px;
+font-size: 14px;
+`
+export const ButtonSendText = styled(ButtonTitle)`
+color: #FFFFFF;
+text-transform: capitalize;
+font-size: 14px;
+font-family: MontserratAlternates_700Bold;
+`
+
+export const ButtonCancelText = styled.Text`
+color: #C81D25;
+font-size: 12px;
+font-family: MontserratAlternates_500Medium;
+text-transform: capitalize;
+`

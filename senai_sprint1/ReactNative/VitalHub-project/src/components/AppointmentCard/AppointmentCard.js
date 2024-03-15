@@ -54,7 +54,7 @@ export const AppointmentCard = ({
                             </ButtonCard>
                         ) : (
 
-                            <ButtonCard onPress={profile !== "Paciente" ? onPressAppointment : () => navigation.replace("ViewDescription")}
+                            <ButtonCard onPress={profile !== "Paciente" ? onPressAppointment : () => navigation.replace("ViewPrescription")}
                         >
                                 <ButtonTextCard situacao={situacao}>Ver prontuário</ButtonTextCard>
                             </ButtonCard>
