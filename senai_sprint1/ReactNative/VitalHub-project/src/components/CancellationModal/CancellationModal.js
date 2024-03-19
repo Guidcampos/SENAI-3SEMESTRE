@@ -3,6 +3,7 @@ import { ButtonTitle, Title } from "../Title/TitleStyle"
 import { LinkCodeModal } from "../Links/Links"
 import { ModalContent, ModalText, PatientModal } from "./Style"
 import { ButtonModal, ButtonSecondary } from "../Button/ButtonStyle"
+import { handleCallNotifications } from "../Notifications/Notifications"
 
 export const CancellationModal = ({
     visible,
@@ -22,26 +23,27 @@ export const CancellationModal = ({
 
                 {/* Content */}
                 <ModalContent>
-                    
+
                     <Title>Cancelar consulta</Title>
-                    
+
                     <ModalText>Ao cancelar essa consulta, abrirá uma possível disponibilidade no seu horário, deseja mesmo cancelar essa consulta?</ModalText>
 
-                    <ButtonModal onPress = {() => navigation.replace("Main")}>
+                    <ButtonModal onPress={() => {
+                        setShowModalCancel(false) , 
+                        handleCallNotifications({
+                            title: "Tudo Certo", 
+                            body: "Sua consulta foi cancelada com sucesso"})}
+                        }>
                         <ButtonTitle>Confirmar</ButtonTitle>
                     </ButtonModal>
-                    
-                    {/* <ButtonSecondary>
-                        <ButtonTitleSecondary>Cancelar</ButtonTitleSecondary>
-                    </ButtonSecondary> */}
-                    
-                    <LinkCodeModal onPress = {() => setShowModalCancel(false)}>Cancelar</LinkCodeModal>
+
+                    <LinkCodeModal onPress={() => setShowModalCancel(false)}>Cancelar</LinkCodeModal>
 
                 </ModalContent>
 
             </PatientModal>
-
-
+            
+       
 
         </Modal>
     )

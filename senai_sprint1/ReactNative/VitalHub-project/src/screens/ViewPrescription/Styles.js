@@ -6,3 +6,4 @@ height: 2px;
 border: 1px solid #8C8A97;
 border-bottom: 20px;
 `
+

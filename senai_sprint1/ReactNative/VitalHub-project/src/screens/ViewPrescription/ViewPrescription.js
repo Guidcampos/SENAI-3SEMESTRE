@@ -6,9 +6,9 @@ import { Container, ContainerViewPrescriptiion, ContainerViewPrescriptionButton,
 import { LinkBack } from "../../components/Links/Links"
 import { ViewPrescriptiionImage } from "../../components/Logo/LogoStyle"
 import { SubtitleViewPrescription, TitleViewPrescriptiion } from "../../components/Title/TitleStyle"
-import { Line } from "./Styles"
+import { BoxViewImageImport, ImagePrescription, ImportImages, Line } from "./Styles"
 
-export const ViewPrescription = ({navigation}) => {
+export const ViewPrescription = ({ navigation }) => {
     const [showCameraModel, setShowCameraModel] = useState(false)
     const [uriCameraCapture, setUriCameraCapture] = useState(null)
     return (
@@ -64,9 +64,9 @@ export const ViewPrescription = ({navigation}) => {
 
                 <ContainerViewPrescriptionButton>
 
-                    <ButtonSendPrescription text={'Enviar'} onPress={() => setShowCameraModel(true)}/>
+                    <ButtonSendPrescription text={'Enviar'} onPress={() => setShowCameraModel(true)} />
 
-                    <ButtonCanceled text={'Cancelar'}/>
+                    <ButtonCanceled text={'Cancelar'} onPress={() => setUriCameraCapture(null)} />
 
                 </ContainerViewPrescriptionButton>
 
@@ -75,7 +75,7 @@ export const ViewPrescription = ({navigation}) => {
                 <BoxInputViewPrescription
                     fieldWidth={100}
                     fieldHeight={121}
-                    keyType="text"  
+                    keyType="text"
                     editable={false}
                     fieldValue={"Resultado do exame de sangue : tudo normal"}
                 />
