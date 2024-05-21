@@ -127,7 +127,10 @@ const Home = ({ token, atual, audio, setAtual, setAudio }) => {
             ) : (
               <>
                 <ContainerPlaylist>
-                  <ButtonIcon onPress={() => setPlaylist(null)}>
+                  <ButtonIcon
+                    onPress={() => setPlaylist(null)}
+                    testID="icon-voltar"
+                  >
                     <FontAwesome5 name="angle-left" size={30} color="#fbfbfb" />
                   </ButtonIcon>
 
