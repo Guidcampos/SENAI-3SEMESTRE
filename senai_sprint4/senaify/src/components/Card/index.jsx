@@ -33,6 +33,7 @@ export const Music = ({
   image,
   name,
   label,
+  labelButton,
   artist,
   play = false,
   isLike = false,
@@ -74,7 +75,7 @@ export const Music = ({
       </ContainerMusic>
 
       {like && (
-        <ButtonLike onPress={() => handleLike()} testID="icon-button">
+        <ButtonLike onPress={() => handleLike()} testID={labelButton}>
           {isLiked ? (
             <FontAwesome
               name="heart"

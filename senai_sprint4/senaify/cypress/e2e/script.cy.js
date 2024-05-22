@@ -27,25 +27,20 @@ describe('template spec', () => {
     cy.get("[href= '/Search']").click();
     // cy.scrollTo("top")
     cy.get("[data-testid='campoBusca']").type("Xaprala")
-    cy.get("[aria-label= 'music-item']").should("have.length.greaterThan", 0)
+    cy.get("[aria-label= 'music-item-sch']").should("have.length.greaterThan", 0)
 
-    musicaItem = cy.get("[aria-label= 'music-item']").contains("Xapralá")
+    musicaItem = cy.get("[aria-label= 'music-item-sch']").contains("Xapralá")
     musicaItem.click()
-    cy.wait(1000)
-    musicaItem.click()
-
-
   });
 
-  // it('Curtir musica', () => {
-  //   cy.get(musicaItem).get("[data-testid = 'icon-button']").first().click()
-  // });
+  it('Curtir musica', () => {
+    cy.get(musicaItem).get("[data-testid = 'icon-button-sch']").first().click()
+  });
 
   it('Verificar música favoritada na tela de Favoritos', () => {
     cy.get("[href= '/Favorites']").click();
-    cy.get("[aria-label= 'music-item']").should("have.length.greaterThan", 0)
-    cy.wait(2000)
-    cy.get("[aria-label= 'music-item']").contains("Xapralá").click()
+    cy.get("[aria-label= 'favorite-item']").should("have.length.greaterThan", 0)
+    cy.get("[aria-label= 'favorite-item']").contains("Xapralá").click()
   });
 
 
